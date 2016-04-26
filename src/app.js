@@ -13,12 +13,20 @@ var router = require('./api');
 // create an instance to allow for middleware we create
 var app = express();
 
-// http
-var http = require('http');
 var port = process.env.PORT || 5000;
 
+var mongoose = require('mongoose');
+
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/mean-todo', (err) => {
+  if(err) {
+    console.log('Failed to connect to Mongodb!');
+  } else {
+    console.log('Successfully connected to Mongo!');
+  }
+});
+
 // require database - mongoose is a singleton, when you do it in one file, changes happen across the node process
-require('./database');
+// require('./database');
 
 // require the seed file after the database
 require('./seed');
