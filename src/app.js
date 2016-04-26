@@ -17,6 +17,14 @@ var app = express();
 var http = require('http');
 var port = process.env.PORT || 5000;
 
+// create server
+http.createServer( (req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Hello World');
+}).listen(port, () => {
+  console.log("Server running at " + port);
+});
+
 // require database - mongoose is a singleton, when you do it in one file, changes happen across the node process
 require('./database');
 
@@ -32,13 +40,6 @@ app.use(parser.json());
 // auto does the namespacing for new routes
 app.use('/api', router);
   
-// create server
-http.createServer( (req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('Hello World');
-}).listen(port, () => {
-  console.log("Server running at " + port);
-});
 
 // fires up the server in the browser
 // app.listen(port, function() {
