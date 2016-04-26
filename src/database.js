@@ -2,7 +2,7 @@
 
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/mean-todo', (err) => {
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/mean-todo', (err) => {
   if(err) {
     console.log('Failed to connect to Mongodb!');
   } else {
