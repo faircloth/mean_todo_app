@@ -15,10 +15,10 @@ var app = express();
 
 var port = process.env.PORT || 5000;
 
-var uri =   process.env.MONGOLAB_URI  ||
-            process.env.MONGOHQ_URL   ||
-            process.env.MONGODB_URI   ||
-            'mongodb://localhost/mean-todo';
+var uri =   process.env.MONGODB_URI || 'mongodb://localhost/mean-todo';
+
+// process.env.MONGOLAB_URI  ||
+// process.env.MONGOHQ_URL   ||
 
 var mongoose = require('mongoose');
 
