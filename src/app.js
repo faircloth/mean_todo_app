@@ -42,9 +42,9 @@ app.use('/api', router);
   
 
 // fires up the server in the browser
-// app.listen(port, function() {
-//   console.log('the server is running on port ' + port);
-// });
+app.listen(port, function() {
+  console.log('the server is running on port ' + port);
+});
 
 
 
