@@ -1,11 +1,12 @@
 'use strict';
 
+var uri =   process.env.MONGODB_URI || 'mongodb://localhost/mean-todo';
 var mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/mean-todo', (err) => {
+mongoose.connect(uri, (err) => {
   if(err) {
-    console.log('Failed to connect to Mongodb!');
+    console.log('Failed to connect to Mongodb through ' + uri);
   } else {
-    console.log('Successfully connected to Mongo!');
+    console.log('Successfully connected to Mongo through ' + uri);
   }
 });
