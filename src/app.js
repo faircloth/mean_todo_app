@@ -33,8 +33,13 @@ app.use(parser.json());
 // auto does the namespacing for new routes
 app.use('/api', router);
 
+
+var corsOptions = {
+  origin: 'http://mean-todo.surge.sh/'
+};
+
 // cors, allow access
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.listen(port);
   
