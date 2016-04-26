@@ -1,8 +1,11 @@
 'use strict';
 
 function DataService ($http, $q) {
+  
+  var url = "https://stormy-bayou-72719.herokuapp.com/";
+
   this.getTodos = function(cb) {
-    $http.get('/api/todos').then(cb);
+    $http.get(url + 'api/todos').then(cb);
   };
   
   this.deleteTodo = function(todo) {
