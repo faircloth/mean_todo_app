@@ -13,8 +13,19 @@ var router = require('./api');
 // create an instance to allow for middleware we create
 var app = express();
 
+const http = require('http');
+
 // th video on mongo set up for heroku
 const port = process.env.PORT || 3000;
+
+http.createServer();
+
+//   () => {
+//   console.log('create server');
+// });
+// .listen(port, () => {
+//   console.log('listen on create server');
+// });
 
 // require database - mongoose is a singleton, when you do it in one file, changes happen across the node process
 require('./database');
