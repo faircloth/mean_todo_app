@@ -24,8 +24,14 @@ require('./database');
 // require the seed file after the database
 require('./seed');
 
+
+app.use( () => {
+  console.log('a request was made to the app');
+  cors();
+});
+
 // cors, allow access
-app.use(cors());
+// app.use(cors());
 
 // this is serving the entire public folder at the home route
 app.use('/', express.static('public'));
