@@ -13,6 +13,9 @@ var router = require('./api');
 // create an instance to allow for middleware we create
 var app = express();
 
+// access from front-end
+var cors = require('cors');
+
 var port = process.env.PORT || 5000;
 
 // require database - mongoose is a singleton, when you do it in one file, changes happen across the node process
@@ -31,10 +34,7 @@ app.use(parser.json());
 app.use('/api', router);
 
 // cors, allow access
-app.use( (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-});
+app.use(cors());
 
 app.listen(port);
   
