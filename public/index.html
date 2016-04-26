@@ -7,8 +7,12 @@
 </head>
 <body ng-app="todoListApp">
   
+  <!-- src takes an expression (String, Function, etc.) can be useful for dynamic templating -->
+  <!-- <ng-include src="'templates/navbar.html'"></ng-include> -->
+  
   <h1>My TODOs!</h1>
   
+
   <div class="list" ng-controller="mainCtrl">
     <div class="add">
       <a href="#" ng-click="addTodo()">
@@ -16,13 +20,10 @@
       </div>
     <todo></todo>
    </div>
-
   
-  <script src="/vendor/angular.js"></script>
-  <script src="/scripts/app.js"></script>
-  <script src="/scripts/controllers/main.js"></script>
-  <script src="/scripts/controllers/todo.js"></script>
-  <script src="/scripts/services/data.js"></script>
-  <script src="/scripts/directives/todo.js"></script>
+  <!-- Webpack creates these two files -->
+  <script src="/scripts/vendor.bundle.js"></script>
+  <script src="/scripts/todo.bundle.js"></script>
+
 </body>
 </html>
