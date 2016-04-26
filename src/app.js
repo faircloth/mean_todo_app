@@ -15,7 +15,7 @@ var app = express();
 
 // http
 var http = require('http');
-var port = process.env.PORT || 5000);
+var port = process.env.PORT || 5000;
 
 // require database - mongoose is a singleton, when you do it in one file, changes happen across the node process
 require('./database');
