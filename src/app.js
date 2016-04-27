@@ -25,10 +25,10 @@ require('./database');
 require('./seed');
 
 
-app.use( () => {
-  console.log('a request was made to the app');
-  cors();
-});
+// app.use( () => {
+//   console.log('a request was made to the app');
+//   cors();
+// });
 
 // cors, allow access
 // app.use(cors());
