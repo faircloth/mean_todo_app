@@ -7,3 +7,5 @@ function allowAccess () {
     next();
   });  
 }
+
+allowAccess();

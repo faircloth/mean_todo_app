@@ -22,8 +22,7 @@ require('./database');
 require('./seed');
 
 // require access function
-var cors = require('./cors');
-cors.allowAccess();
+require('./cors');
 
 // this is serving the entire public folder at the home route
 app.use('/', express.static('public'));
