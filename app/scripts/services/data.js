@@ -8,9 +8,10 @@ function DataService ($http, $q) {
     $http.get(url + 'api/todos').then(cb);
   };
   
-  this.deleteTodo = function(todo) {
-    console.log("I deleted the " + todo.name + " todo!");
-    $http.delete(url + 'api/todos/' + todo._id);
+  this.deleteTodo = function(todoID) {
+    $http.delete(url + 'api/todos/' + todoID).then( () => {
+      console.log(todo.name + ' was deleted!');
+    });
   };
   
   this.saveTodos = function(todos) {

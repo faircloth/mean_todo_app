@@ -2,9 +2,9 @@
 
 function TodoCtrl ($scope, dataService) {
   
-  $scope.deleteTodo = function(todo, index) {
-    $scope.todos.splice(index, 1);
-    dataService.deleteTodo(todo);
+  $scope.deleteTodo = function(todo) {
+    var todoID = todo._id;
+    dataService.deleteTodo(todoID);
   };
 
   $scope.todoChecked = function(todo) {
