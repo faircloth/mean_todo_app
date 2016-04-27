@@ -11,7 +11,7 @@ var parser = require('body-parser');
 var router = require('./api');
 
 // access from front-end
-var cors = require('cors');
+// var cors = require('cors');
 
 // create an instance to allow for middleware we create
 var app = express();
@@ -25,10 +25,10 @@ require('./database');
 require('./seed');
 
 
-// app.use( () => {
-//   console.log('a request was made to the app');
-//   cors();
-// });
+app.use( () => {
+  console.log('a request was made to the app');
+  res.header('Access-Control-Allow-Origin', "*");
+});
 
 // cors, allow access
 // app.use(cors());
