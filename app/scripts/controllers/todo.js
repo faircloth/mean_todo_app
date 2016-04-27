@@ -2,18 +2,15 @@
 
 function TodoCtrl ($scope, dataService) {
   
-  $scope.deleteTodo = function(todo) {
-    var todoID = todo._id;
-    dataService.deleteTodo(todoID);
+  $scope.deleteTodo = function(todo, index) {
+    dataService.deleteTodo(todo).then( () => {
+      $scope.todos.splice(index, 1);
+    });
   };
-
-  $scope.todoChecked = function(todo) {
-    console.log(todo.name + ' was checked or unchecked');
-  }
   
   $scope.saveTodos = function() {
     var filteredTodos = $scope.todos.filter(function(todo){
-      if(todo.edited || todo.checked) {
+      if(todo.edited) {
         return todo
       };
     })

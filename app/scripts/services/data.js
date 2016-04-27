@@ -8,9 +8,14 @@ function DataService ($http, $q) {
     $http.get(url + 'api/todos').then(cb);
   };
   
-  this.deleteTodo = function(todoID) {
-    $http.delete(url + 'api/todos/' + todoID).then( () => {
-      console.log(todo.name + ' was deleted!');
+  this.deleteTodo = function(todo) {
+    
+    if (!todo._id) {
+      return $q.resolve();
+    }
+
+    return $http.delete(url + 'api/todos/' + todo._id).then( () => {
+      console.log('Todo was deleted!');
     });
   };
   
@@ -31,7 +36,7 @@ function DataService ($http, $q) {
     });
 
     return $q.all(queue).then( (results) => {
-      console.log("I saved " + todos.length + " todos!");
+      console.log(todos.length + " todo(s) were saved!");
     });
 
   };
