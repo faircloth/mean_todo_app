@@ -24,7 +24,11 @@ require('./database');
 // require the seed file after the database
 require('./seed');
 
-app.use(res.header('Access-Control-Allow-Origin', "*"));
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 // cors, allow access
 // app.use(cors());
