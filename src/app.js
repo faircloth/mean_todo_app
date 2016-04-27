@@ -10,9 +10,6 @@ var parser = require('body-parser');
 // imported from api directory
 var router = require('./api');
 
-// access from front-end
-// var cors = require('cors');
-
 // create an instance to allow for middleware we create
 var app = express();
 
@@ -24,16 +21,9 @@ require('./database');
 // require the seed file after the database
 require('./seed');
 
-// allow access from front-end
-app.use( (req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
-  next();
-});
-
-// cors, allow access
-// app.use(cors());
+// require access function
+require('./cors');
+allowAccess();
 
 // this is serving the entire public folder at the home route
 app.use('/', express.static('public'));
