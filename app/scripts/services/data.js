@@ -10,7 +10,7 @@ function DataService ($http, $q) {
   
   this.deleteTodo = function(todo) {
     console.log("I deleted the " + todo.name + " todo!");
-    $http.delete('/api/todos/' + todo._id);
+    $http.delete(url + 'api/todos/' + todo._id);
   };
   
   this.saveTodos = function(todos) {
@@ -19,9 +19,9 @@ function DataService ($http, $q) {
     todos.forEach(function(todo) {
       var request;
       if(!todo._id) {
-        request = $http.post('/api/todos', todo);
+        request = $http.post(url + 'api/todos', todo);
       } else {
-        request = $http.put('/api/todos/' + todo._id, todo).then( (results) => {
+        request = $http.put(url + 'api/todos/' + todo._id, todo).then( (results) => {
           todo = results.data.todo;
           return todo;
         });
