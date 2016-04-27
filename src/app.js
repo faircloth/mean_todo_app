@@ -24,11 +24,7 @@ require('./database');
 // require the seed file after the database
 require('./seed');
 
-
-app.use( () => {
-  console.log('a request was made to the app');
-  res.header('Access-Control-Allow-Origin', "*");
-});
+app.use(res.header('Access-Control-Allow-Origin', "*"));
 
 // cors, allow access
 // app.use(cors());
